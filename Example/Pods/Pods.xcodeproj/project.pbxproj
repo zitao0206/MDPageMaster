@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0564B344D488B4F9D4D92C59FBBD7F91 /* XYPageMasterLifeCycleModule.h in Headers */ = {isa = PBXBuildFile; fileRef = EB3E0DC691CF536E36B4AD1A09EF8D30 /* XYPageMasterLifeCycleModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07822CCAD506CC6C6B0B32F3C8A93EF5 /* Pods-XYPageMaster_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9F66F3AFC4154958CC49C41561DE98 /* Pods-XYPageMaster_Example-dummy.m */; };
 		1035DF9E9E6A22D5CD9A7117EA28BA2D /* UIViewController+XYPageMaster.h in Headers */ = {isa = PBXBuildFile; fileRef = DFBB1A65899C0292AFE4612E8CF9C00C /* UIViewController+XYPageMaster.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2A7B0AE9FE10CC56CD6016B6E0F4BDA6 /* Pods-XYPageMaster_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA9C600C090A2940924CECCBC602DEE /* Pods-XYPageMaster_Tests-dummy.m */; };
@@ -18,7 +17,6 @@
 		6F8F46DF4E5F9E4F115AEB84A10EB9E9 /* XYPageMasterViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 66D06CECC17E53ADF6AC98EB850DCF61 /* XYPageMasterViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FC22A516AB556A245503EA0FEFB6C93 /* XYUrlAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C83D2B0BED071901B90EA001DF2C9E6 /* XYUrlAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84663C590BB662139D3D2CC7A31104FA /* UIViewController+XYPageMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 682B8A3141341AA4EDAAE87B68FEF8B2 /* UIViewController+XYPageMaster.m */; };
-		8D652E056F05D63EEEE3522FDC750FBF /* XYPageMasterLifeCycleModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A82247EFE47B75FFFA6FBFBCE87D88F9 /* XYPageMasterLifeCycleModule.m */; };
 		91DA7F3FC8A00E58469C629F730D8B88 /* XYPageMaster-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 70CC36CD3C22582B52770612102F120A /* XYPageMaster-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A04E6DEE095AB75517EF4E97488ADB15 /* Pods-XYPageMaster_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D30C9B128DA3AE08F7D66C532ECFD1EB /* Pods-XYPageMaster_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A096FC1F0971A52A2458CAFBE60E98A0 /* Pods-XYPageMaster_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E7DAAE4FC14C67549EBA83E93AFF6F1F /* Pods-XYPageMaster_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -51,7 +49,7 @@
 
 /* Begin PBXFileReference section */
 		0707ADAD90C7A783E2AFAF54BDC3D470 /* Pods-XYPageMaster_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYPageMaster_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		09F1DFEFC67E6D24FC2E712918DD0C89 /* Pods_XYPageMaster_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_XYPageMaster_Example.framework; path = "Pods-XYPageMaster_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		09F1DFEFC67E6D24FC2E712918DD0C89 /* Pods_XYPageMaster_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYPageMaster_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B9D94AF8C62BB5FD4D65A874129AD1B /* Pods-XYPageMaster_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYPageMaster_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		165828BAD66BB088034037C2D6DE9B0D /* XYPageMasterNavigationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XYPageMasterNavigationController.m; path = XYPageMaster/Classes/XYPageMasterNavigationController.m; sourceTree = "<group>"; };
 		1B760702E6DBD02DE876B9DAF53767E5 /* Pods-XYPageMaster_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYPageMaster_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -68,20 +66,19 @@
 		682B8A3141341AA4EDAAE87B68FEF8B2 /* UIViewController+XYPageMaster.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+XYPageMaster.m"; path = "XYPageMaster/Classes/UIViewController+XYPageMaster.m"; sourceTree = "<group>"; };
 		6848663475B44008FDA9B645FA0A31F8 /* Pods-XYPageMaster_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XYPageMaster_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		6AA9C600C090A2940924CECCBC602DEE /* Pods-XYPageMaster_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XYPageMaster_Tests-dummy.m"; sourceTree = "<group>"; };
-		6DE20BAD1CB4FF9158252425B8AFFA48 /* Pods_XYPageMaster_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_XYPageMaster_Tests.framework; path = "Pods-XYPageMaster_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DE20BAD1CB4FF9158252425B8AFFA48 /* Pods_XYPageMaster_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYPageMaster_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70CC36CD3C22582B52770612102F120A /* XYPageMaster-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYPageMaster-umbrella.h"; sourceTree = "<group>"; };
 		76BFE8B50B540B3E5DF4250B9FC38429 /* Pods-XYPageMaster_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-XYPageMaster_Tests.modulemap"; sourceTree = "<group>"; };
 		7C83D2B0BED071901B90EA001DF2C9E6 /* XYUrlAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XYUrlAction.h; path = XYPageMaster/Classes/XYUrlAction.h; sourceTree = "<group>"; };
 		8155E96471288581B8BB80F7D5EA33F7 /* Pods-XYPageMaster_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XYPageMaster_Example-resources.sh"; sourceTree = "<group>"; };
 		876F218AC2DAAA364B3A6823F0AB4645 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		880333C3B2AE0DAFC1FE3DDA477D3ECA /* XYPageMaster.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = XYPageMaster.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		880333C3B2AE0DAFC1FE3DDA477D3ECA /* XYPageMaster.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = XYPageMaster.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8A451763364F130C8F7CC48FB1141E9E /* XYUrlAction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XYUrlAction.m; path = XYPageMaster/Classes/XYUrlAction.m; sourceTree = "<group>"; };
 		8EB55DABEEE29EA9C3555D405997E290 /* Pods-XYPageMaster_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYPageMaster_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		97F48689617940ABC7B82079C3D437AE /* XYPageMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XYPageMaster.framework; path = XYPageMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		97F48689617940ABC7B82079C3D437AE /* XYPageMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XYPageMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E70412BB3FAA339BAE994D720E09CDE /* Pods-XYPageMaster_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XYPageMaster_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9FC197AD5FC97DBC26D62B1329EE65F1 /* NSURL+XYPageMaster.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURL+XYPageMaster.h"; path = "XYPageMaster/Classes/NSURL+XYPageMaster.h"; sourceTree = "<group>"; };
-		A82247EFE47B75FFFA6FBFBCE87D88F9 /* XYPageMasterLifeCycleModule.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XYPageMasterLifeCycleModule.m; path = XYPageMaster/Classes/XYPageMasterLifeCycleModule.m; sourceTree = "<group>"; };
 		AC8EF15B30D2DAAD67712ADE40763CF6 /* Pods-XYPageMaster_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYPageMaster_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BC9F66F3AFC4154958CC49C41561DE98 /* Pods-XYPageMaster_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XYPageMaster_Example-dummy.m"; sourceTree = "<group>"; };
 		CA221B072C29E99B158E7B2325CE8FED /* XYPageMaster.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XYPageMaster.h; path = XYPageMaster/Classes/XYPageMaster.h; sourceTree = "<group>"; };
@@ -94,10 +91,9 @@
 		E33618B5F6C12BFD916E7174D5668A9B /* XYPageMaster-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYPageMaster-prefix.pch"; sourceTree = "<group>"; };
 		E6270F5641163F7689F16BE16633C4AE /* NSURL+XYPageMaster.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURL+XYPageMaster.m"; path = "XYPageMaster/Classes/NSURL+XYPageMaster.m"; sourceTree = "<group>"; };
 		E7DAAE4FC14C67549EBA83E93AFF6F1F /* Pods-XYPageMaster_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XYPageMaster_Example-umbrella.h"; sourceTree = "<group>"; };
-		EB3E0DC691CF536E36B4AD1A09EF8D30 /* XYPageMasterLifeCycleModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XYPageMasterLifeCycleModule.h; path = XYPageMaster/Classes/XYPageMasterLifeCycleModule.h; sourceTree = "<group>"; };
 		EC74CDACB59C3D51639014F93AF04E0B /* Pods-XYPageMaster_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XYPageMaster_Tests-resources.sh"; sourceTree = "<group>"; };
-		F77F56385F9F3A268303E9C14836EDDE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		F7B9A64587D621D0FBD11AA540942F84 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		F77F56385F9F3A268303E9C14836EDDE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		F7B9A64587D621D0FBD11AA540942F84 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,8 +133,6 @@
 				682B8A3141341AA4EDAAE87B68FEF8B2 /* UIViewController+XYPageMaster.m */,
 				CA221B072C29E99B158E7B2325CE8FED /* XYPageMaster.h */,
 				3D3C5DEF3BFDCF3259E1E2BBA04DC2C5 /* XYPageMaster.m */,
-				EB3E0DC691CF536E36B4AD1A09EF8D30 /* XYPageMasterLifeCycleModule.h */,
-				A82247EFE47B75FFFA6FBFBCE87D88F9 /* XYPageMasterLifeCycleModule.m */,
 				202ED921CE2DBE03F3127F6BE5415293 /* XYPageMasterNavigationController.h */,
 				165828BAD66BB088034037C2D6DE9B0D /* XYPageMasterNavigationController.m */,
 				66D06CECC17E53ADF6AC98EB850DCF61 /* XYPageMasterViewController.h */,
@@ -285,7 +279,6 @@
 				1035DF9E9E6A22D5CD9A7117EA28BA2D /* UIViewController+XYPageMaster.h in Headers */,
 				91DA7F3FC8A00E58469C629F730D8B88 /* XYPageMaster-umbrella.h in Headers */,
 				6462A62D218DEBE5F51B79E23C94A0DF /* XYPageMaster.h in Headers */,
-				0564B344D488B4F9D4D92C59FBBD7F91 /* XYPageMasterLifeCycleModule.h in Headers */,
 				C6DF9F39A99EB74F982F19C1596FA191 /* XYPageMasterNavigationController.h in Headers */,
 				6F8F46DF4E5F9E4F115AEB84A10EB9E9 /* XYPageMasterViewController.h in Headers */,
 				6FC22A516AB556A245503EA0FEFB6C93 /* XYUrlAction.h in Headers */,
@@ -393,7 +386,6 @@
 				84663C590BB662139D3D2CC7A31104FA /* UIViewController+XYPageMaster.m in Sources */,
 				569143F4D16E4D7F911F3E829C92C86D /* XYPageMaster-dummy.m in Sources */,
 				DCA9CD71E3578BC80E5FBAEEE05A0FDA /* XYPageMaster.m in Sources */,
-				8D652E056F05D63EEEE3522FDC750FBF /* XYPageMasterLifeCycleModule.m in Sources */,
 				DDEC845BA7F12F2020C0924388A3A316 /* XYPageMasterNavigationController.m in Sources */,
 				465D7F79E0FC0558EA2D607CB58DC154 /* XYPageMasterViewController.m in Sources */,
 				E3CE78CF4EC0A6F49452E39A28D488F0 /* XYUrlAction.m in Sources */,

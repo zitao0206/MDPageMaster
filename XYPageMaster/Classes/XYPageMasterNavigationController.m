@@ -7,7 +7,7 @@
 
 #import "XYPageMasterNavigationController.h"
 
-@interface XYPageMasterNavigationController ()<UINavigationControllerDelegate,UIGestureRecognizerDelegate>
+@interface XYPageMasterNavigationController ()<UINavigationControllerDelegate>
 
 @end
 
@@ -20,31 +20,10 @@
     self.interactivePopGestureRecognizer.delegate = weakSelf;
 }
 
-- (BOOL)shouldAutorotate
-{
-    return  NO;
-}
-
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskPortrait;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    if (interfaceOrientation == UIInterfaceOrientationPortrait) {
-        return YES;
-    }
-    return NO;//UIInterfaceOrientationPortrait;
-}
-
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-}
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-    // 当当前控制器是根控制器时，不可以侧滑返回，所以不能使其触发手势
+    //当当前控制器是根控制器时，不可以侧滑返回，所以不能使其触发手势
     NSArray *chidVC = self.childViewControllers;
     if(chidVC.count == 1) {
         return NO;
@@ -122,14 +101,6 @@
         }
     }
     [self popToRootViewControllerAnimated:naviTransition.animation == XYNaviAnimationPush];
-}
-
-- (UIViewController *)childViewControllerForStatusBarHidden {
-    return self.topViewController;
-}
-
-- (UIViewController *)childViewControllerForStatusBarStyle {
-    return self.topViewController;
 }
 
 @end

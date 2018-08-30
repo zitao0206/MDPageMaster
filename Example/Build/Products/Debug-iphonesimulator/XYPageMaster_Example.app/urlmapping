@@ -1,4 +1,4 @@
 #页面key值              :页面className               :StoryboardName        :BundleName
-#home                  :XYHomeTabBarVC             :Main                  :XYHopeMainProject
-settinghome            :XYSettingHomeVC            :XYSettings_iPhone
+#home                  :XYHomeTabViewController    :Main                  :mainBundle
+testVC                 :XYViewController           
 

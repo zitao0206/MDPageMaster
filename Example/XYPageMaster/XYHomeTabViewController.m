@@ -7,6 +7,9 @@
 //
 
 #import "XYHomeTabViewController.h"
+#import "XYPageMaster.h"
+
+#define  MyStringKey  @"MyStringKey"
 
 @interface XYHomeTabViewController ()
 
@@ -24,6 +27,11 @@
     vc1.tabBarItem.image = [UIImage imageNamed:@"cat"];
     vc1.tabBarItem.selectedImage = [UIImage imageNamed:@"dog"];
     vc1.view.backgroundColor = [UIColor greenColor];
+    UIButton *helloBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 200, 50)];
+    helloBtn.backgroundColor = [UIColor redColor];
+    [helloBtn setTitle:@"跳转入口" forState:UIControlStateNormal];
+    [helloBtn addTarget:self action:@selector(jumpTo) forControlEvents:UIControlEventTouchUpInside];
+    [vc1.view addSubview:helloBtn];
     [self addChildViewController:vc1];
     
     
@@ -40,6 +48,14 @@
     vc3.tabBarItem.selectedImage = [UIImage imageNamed:@"cat"];
     vc3.view.backgroundColor = [UIColor greenColor];
     [self addChildViewController:vc3];
+}
+
+- (void)jumpTo
+{
+    [[XYPageMaster master] openUrl:@"xiaoying://testVC" action:^(XYUrlAction *action) {
+      
+        [action setString:@"hello world" forKey:MyStringKey];
+    }];
 }
 
 

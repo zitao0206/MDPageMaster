@@ -60,11 +60,6 @@
         },
         {
           'type': 'file',
-          'name': "XYPageMasterLifeCycleModule.h",
-          'external-contents': "/Users/lizitao/Desktop/MDProjects/XYPageMaster/XYPageMaster/Classes/XYPageMasterLifeCycleModule.h"
-        },
-        {
-          'type': 'file',
           'name': "XYPageMasterNavigationController.h",
           'external-contents': "/Users/lizitao/Desktop/MDProjects/XYPageMaster/XYPageMaster/Classes/XYPageMasterNavigationController.h"
         },

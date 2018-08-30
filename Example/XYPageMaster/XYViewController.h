@@ -6,8 +6,8 @@
 //  Copyright (c) 2018 leon0206. All rights reserved.
 //
 
-@import UIKit;
+#import "XYPageMaster.h"
 
-@interface XYViewController : UIViewController
+@interface XYViewController : XYPageMasterViewController
 
 @end
