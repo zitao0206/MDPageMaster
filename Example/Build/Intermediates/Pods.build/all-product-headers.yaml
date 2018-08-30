@@ -1,0 +1,60 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/lizitao/Desktop/PCProject/XYPageMaster/Example/Build/Products/Debug-iphonesimulator/Pods_XYPageMaster_Example.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Pods-XYPageMaster_Example-umbrella.h",
+          'external-contents': "/Users/lizitao/Desktop/PCProject/XYPageMaster/Example/Pods/Target Support Files/Pods-XYPageMaster_Example/Pods-XYPageMaster_Example-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "Pods_XYPageMaster_Example-Swift.h",
+          'external-contents': "/Users/lizitao/Desktop/PCProject/XYPageMaster/Example/Build/Products/Debug-iphonesimulator/Pods_XYPageMaster_Example.framework/Headers/Pods_XYPageMaster_Example-Swift.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/lizitao/Desktop/PCProject/XYPageMaster/Example/Build/Products/Debug-iphonesimulator/Pods_XYPageMaster_Example.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/lizitao/Desktop/PCProject/XYPageMaster/Example/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-XYPageMaster_Example.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/lizitao/Desktop/PCProject/XYPageMaster/Example/Build/Products/Debug-iphonesimulator/XYPageMaster/XYPageMaster.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "XYPageMaster-Swift.h",
+          'external-contents': "/Users/lizitao/Desktop/PCProject/XYPageMaster/Example/Build/Products/Debug-iphonesimulator/XYPageMaster/XYPageMaster.framework/Headers/XYPageMaster-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "XYPageMaster-umbrella.h",
+          'external-contents': "/Users/lizitao/Desktop/PCProject/XYPageMaster/Example/Pods/Target Support Files/XYPageMaster/XYPageMaster-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/lizitao/Desktop/PCProject/XYPageMaster/Example/Build/Products/Debug-iphonesimulator/XYPageMaster/XYPageMaster.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/lizitao/Desktop/PCProject/XYPageMaster/Example/Build/Intermediates/Pods.build/Debug-iphonesimulator/XYPageMaster.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}
