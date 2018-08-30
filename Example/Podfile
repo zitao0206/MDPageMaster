@@ -6,6 +6,5 @@ target 'XYPageMaster_Example' do
   target 'XYPageMaster_Tests' do
     inherit! :search_paths
 
-    pod 'FBSnapshotTestCase'
   end
 end

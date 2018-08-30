@@ -7,13 +7,25 @@
 //
 
 #import "XYAppDelegate.h"
+#import "XYPageMaster.h"
 
 @implementation XYAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor blackColor];
+    [self.window makeKeyAndVisible];
+    [self setupPageMaster];
     return YES;
+}
+
+- (void)setupPageMaster
+{
+    NSDictionary *params = @{@"schema":@"xiaoying",@"pagesFile":@"urlmapping",@"rootVC":@"XYHomeTabViewController",@"rootVC_SB":@""};
+    [[XYPageMaster master] setupNavigationControllerWithParams:params];
+    self.window.rootViewController = [XYPageMaster master].navigationContorller;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

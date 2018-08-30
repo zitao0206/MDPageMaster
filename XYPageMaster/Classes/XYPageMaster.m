@@ -53,9 +53,9 @@ static dispatch_once_t onceToken;
     return master;
 }
 
-- (void)setFileNamesOfURLMapping:(NSArray *)fileNames
+- (void)setFileNamesOfURLMapping:(NSString *)fileName
 {
-    _fileNamesOfURLMapping = fileNames;
+    _fileNamesOfURLMapping = fileName;
     [self loadViewControllerElements];
 }
 

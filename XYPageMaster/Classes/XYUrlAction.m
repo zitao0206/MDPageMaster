@@ -17,7 +17,7 @@
 {
     if (self = [super init]) {
         _url = url;
-        _callBackBoard = [XYReactBlackBoard new];
+//        _callBackBoard = [XYReactBlackBoard new];
         NSDictionary *dic = [url parseQuery];
         _params = [NSMutableDictionary dictionary];
         for (NSString *key in [dic allKeys]) {
