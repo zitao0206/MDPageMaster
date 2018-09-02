@@ -22,8 +22,13 @@ pod 'XYPageMaster'
 
 ## Author
 
-leon0206, zitao.li@quvideo.com
+leon0206, 634376133@qq.com
 
 ## License
 
 XYPageMaster is available under the MIT license. See the LICENSE file for more info.
+
+## How to use
+
+https://blog.csdn.net/lizitao/article/details/82223468
+https://blog.csdn.net/lizitao/article/details/82286690 
