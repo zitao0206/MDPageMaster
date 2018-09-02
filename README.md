@@ -30,5 +30,5 @@ XYPageMaster is available under the MIT license. See the LICENSE file for more i
 
 ## How to use
 
-https://blog.csdn.net/lizitao/article/details/82223468
+https://blog.csdn.net/lizitao/article/details/82223468 And
 https://blog.csdn.net/lizitao/article/details/82286690 
