@@ -18,7 +18,9 @@
 {
     NSString *stringValue = [urlAction stringForKey:@"MyStringKey"];
     NSLog(@"-------->%@",stringValue);
-    
+    if (urlAction.callBack) {
+        urlAction.callBack(@"回调啦～");
+    }
 }
 
 - (void)viewDidLoad

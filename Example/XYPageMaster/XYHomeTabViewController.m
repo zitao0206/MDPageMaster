@@ -55,6 +55,9 @@
     [[XYPageMaster master] openUrl:@"xiaoying://testVC" action:^(XYUrlAction *action) {
       
         [action setString:@"hello world" forKey:MyStringKey];
+        action.callBack = ^(id result) {
+            NSLog(@"result: %@",result);
+        };
     }];
 }
 
