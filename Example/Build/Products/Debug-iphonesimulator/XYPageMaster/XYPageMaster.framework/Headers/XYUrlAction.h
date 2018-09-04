@@ -51,7 +51,7 @@ typedef void(^CallBack)(id result);
 /**
  回调block
  */
-@property (nonatomic, strong) CallBack callBack;
+@property (nonatomic, copy) CallBack callBack;
 /**
  数据的正反向传递黑板；
  */
