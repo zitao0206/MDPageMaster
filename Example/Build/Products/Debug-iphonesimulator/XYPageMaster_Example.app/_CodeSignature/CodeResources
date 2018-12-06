@@ -10,7 +10,7 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		RIQPM4r8ko+XGRpUuxMtzjz5/I8=
+		2MPkmBhUl7JWlUP8s+7jxDHC5zs=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		FLo/zedyOPVjqfVxiJlc7RNRuYQ=
+		lCs/UxOYPK/DX+LWZEtdIo2Isgg=
 		</data>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
@@ -26,11 +26,11 @@
 		</data>
 		<key>Base.lproj/Main.storyboardc/UIViewController-whP-gf-Uak.nib</key>
 		<data>
-		gsUpXubLeWRCK3s2D4NJL0KMQBg=
+		AAUdm4S8s2Wlal9rxSwUIG5pNzY=
 		</data>
 		<key>Base.lproj/Main.storyboardc/whP-gf-Uak-view-TpU-gO-2f1.nib</key>
 		<data>
-		iR4Nl4FpyqQr+nyxuOuLuOYiDkY=
+		xFiCs8iZCnx1znu/lTEF/DTj7es=
 		</data>
 		<key>Frameworks/XYPageMaster.framework/Info.plist</key>
 		<data>
@@ -95,11 +95,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			RIQPM4r8ko+XGRpUuxMtzjz5/I8=
+			2MPkmBhUl7JWlUP8s+7jxDHC5zs=
 			</data>
 			<key>hash2</key>
 			<data>
-			euFOTAIzIMut6ebTGQBFK910p68TU/X85oX6C7lTsMo=
+			iMjKYeIDWr7BTLDfwYamGxlt7zYeOBVWOl/Zb9hmaGM=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
@@ -117,11 +117,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			FLo/zedyOPVjqfVxiJlc7RNRuYQ=
+			lCs/UxOYPK/DX+LWZEtdIo2Isgg=
 			</data>
 			<key>hash2</key>
 			<data>
-			Cxvnok+mGVoyP4tr+9vxKjxIz6bJjiJMqdG3+qeJuwg=
+			d/dGppHQNvuuOTKa8V1+Wyt+llwr1b8neoqqp69/wr8=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
@@ -139,22 +139,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			gsUpXubLeWRCK3s2D4NJL0KMQBg=
+			AAUdm4S8s2Wlal9rxSwUIG5pNzY=
 			</data>
 			<key>hash2</key>
 			<data>
-			Fw3p3dfH6UX/VuJEy/f2GSJxtZGCQSkoiht4Yx0AKPg=
+			Mk5QJ8vtpQa7cTzgA+3GyOmnzZjib0HuxEZWEVmwLN4=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/whP-gf-Uak-view-TpU-gO-2f1.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			iR4Nl4FpyqQr+nyxuOuLuOYiDkY=
+			xFiCs8iZCnx1znu/lTEF/DTj7es=
 			</data>
 			<key>hash2</key>
 			<data>
-			K3+RYDUAurhDwORItfa6MJ0TJv6cG4pHJ63lpj2bN3w=
+			D8puFMLt6k0dmHw5PI35jpJeSkTYZmOWNtO1EwqkO5Y=
 			</data>
 		</dict>
 		<key>Frameworks/XYPageMaster.framework/Info.plist</key>

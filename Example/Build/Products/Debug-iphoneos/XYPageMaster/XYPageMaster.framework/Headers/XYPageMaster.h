@@ -43,7 +43,7 @@
 /**
  此方法会完成url解析、参数传递、跳转，带block回调；
  */
-- (void)openUrl:(nonnull NSString *)url action:(nonnull void(^)(XYUrlAction * _Nullable action))actionBlock;
+- (void)openUrl:(nonnull NSString *)url action:(void(^)(XYUrlAction * _Nullable action))actionBlock;
 /**
  此方法只会帮你完成url解析，返回class；
  参数传递、跳转业务自己实现；
