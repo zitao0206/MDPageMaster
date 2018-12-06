@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "XYUrlAction.h"
 
-@interface XYPageMasterNavigationController : UINavigationController<UIGestureRecognizerDelegate>
+@interface XYPageMasterNavigationController : UINavigationController
 
 - (void)pushViewController:(UIViewController *)viewController withAnimation:(BOOL)animated;
 

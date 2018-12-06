@@ -6,17 +6,23 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "XYReactBlackBoard.h"
+#import "XYReactBlackBoard.h"
 
 typedef NS_ENUM(NSInteger, XYSingletonType) {
-    //非单例页面，vc可以循环进栈；
-    XYSingletonTypeNone = 0,
-    //单例页面：发现栈中已有时，popTo此vc；例如首页vc
-    XYSingletonTypeRetop,
-    //单例页面：发现栈中已有时，把此vc提到栈顶；例如登录注册页
-    XYSingletonTypeReuse,
-    //单例页面：发现栈中已有时，remove栈中vc再把新new的vc进行push；例如camera页
-    XYSingletonTypeRenew
+    
+    /*******默认值，单例模式下为XYSingletonTypeRetop，非单例模式下为XYNoSingletonTypeDefault ****/
+    XYNoSingletonTypeNone = 0,
+    
+    /**** 单例页面：isSingleton方法默认为YES ****/
+    XYSingletonTypeRetop,//栈中已有时，popTo此vc，例如首页vc
+    XYSingletonTypeReuse,//栈中已有时，移动此vc到栈顶，例如登录页
+    XYSingletonTypeRenew,//栈中已有时，去除栈中vc再push新vc，例如camera页
+    
+    /**** 非单例页面：须重写isSingleton方法为NO ****/
+    XYNoSingletonTypeDefault,//vc可以循环进栈
+    XYNoSingletonTypeRetop,//栈中已有时，popTo此vc
+    XYNoSingletonTypeReuse,//栈中已有时，移动此vc到栈顶
+    XYNoSingletonTypeRenew//栈中已有时，去除栈中vc再push新vc，例如XYWebViewVC
 };
 
 typedef NSInteger XYNaviAnimation;
@@ -51,11 +57,11 @@ typedef void(^CallBack)(id result);
 /**
  回调block
  */
-@property (nonatomic, copy) CallBack callBack;
+@property (nonatomic, strong) CallBack callBack;
 /**
  数据的正反向传递黑板；
  */
-//@property (nonatomic, strong) XYReactBlackBoard *callBackBoard;
+@property (nonatomic, strong) XYReactBlackBoard *callBackBoard;
 
 + (id)actionWithURL:(NSURL *)url;
 + (id)actionWithURLString:(NSString *)urlString;

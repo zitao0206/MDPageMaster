@@ -27,13 +27,7 @@
     vc1.tabBarItem.image = [UIImage imageNamed:@"cat"];
     vc1.tabBarItem.selectedImage = [UIImage imageNamed:@"dog"];
     vc1.view.backgroundColor = [UIColor greenColor];
-    UIButton *helloBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 200, 50)];
-    helloBtn.backgroundColor = [UIColor redColor];
-    [helloBtn setTitle:@"跳转入口" forState:UIControlStateNormal];
-    [helloBtn addTarget:self action:@selector(jumpTo) forControlEvents:UIControlEventTouchUpInside];
-    [vc1.view addSubview:helloBtn];
-    [self addChildViewController:vc1];
-    
+     [self addChildViewController:vc1];
     
     UIViewController * vc2 = [[UIViewController alloc]init];
     vc2.tabBarItem.title = @"关注";
@@ -48,12 +42,44 @@
     vc3.tabBarItem.selectedImage = [UIImage imageNamed:@"cat"];
     vc3.view.backgroundColor = [UIColor greenColor];
     [self addChildViewController:vc3];
+    
+    
+    UIButton *helloBtn1 = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 200, 50)];
+    helloBtn1.backgroundColor = [UIColor redColor];
+    [helloBtn1 setTitle:@"跳转入口1" forState:UIControlStateNormal];
+    [helloBtn1 addTarget:self action:@selector(jumpTo1) forControlEvents:UIControlEventTouchUpInside];
+    [vc1.view addSubview:helloBtn1];
+   
+    
+    UIButton *helloBtn2 = [[UIButton alloc] initWithFrame:CGRectMake(100, 300, 200, 50)];
+    helloBtn2.backgroundColor = [UIColor redColor];
+    [helloBtn2 setTitle:@"跳转入口2" forState:UIControlStateNormal];
+    [helloBtn2 addTarget:self action:@selector(jumpTo2) forControlEvents:UIControlEventTouchUpInside];
+    [vc1.view addSubview:helloBtn2];
 }
 
-- (void)jumpTo
+- (void)jumpTo1
 {
     [[XYPageMaster master] openUrl:@"xiaoying://testVC" action:^(XYUrlAction *action) {
       
+        [action setString:@"hello world" forKey:MyStringKey];
+        action.callBack = ^(id result) {
+            NSLog(@"result: %@",result);
+        };
+    }];
+}
+
+- (void)jumpTo2
+{
+    [[XYPageMaster master] openUrl:@"xiaoying://testVC" action:^(XYUrlAction *action) {
+        
+        XYNaviTransition *naviTransiton = [XYNaviTransition new];
+        naviTransiton.animation = XYNaviAnimationTransition;
+        naviTransiton.transition.timingFunction =  [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+        naviTransiton.transition.type = kCATransitionFade;
+        naviTransiton.transition.duration = 0.3;
+        naviTransiton.transition.fillMode = kCAFillModeForwards;
+        action.naviTransition = naviTransiton;
         [action setString:@"hello world" forKey:MyStringKey];
         action.callBack = ^(id result) {
             NSLog(@"result: %@",result);

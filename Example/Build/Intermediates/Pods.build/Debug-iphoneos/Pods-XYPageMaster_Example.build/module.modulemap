@@ -1,0 +1,6 @@
+framework module Pods_XYPageMaster_Example {
+  umbrella header "Pods-XYPageMaster_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

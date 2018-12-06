@@ -1,5 +1,5 @@
 PODS:
-  - XYPageMaster (0.1.0)
+  - XYPageMaster (2.0.5)
 
 DEPENDENCIES:
   - XYPageMaster (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  XYPageMaster: f444304a4c75b066ccffeedaf912e8ce2b44f9fa
+  XYPageMaster: 03e8d2632f7491ee154c31555be5f62ff62d122c
 
 PODFILE CHECKSUM: b51d37c6412761b37d972747958d77fbb0837e6b
 

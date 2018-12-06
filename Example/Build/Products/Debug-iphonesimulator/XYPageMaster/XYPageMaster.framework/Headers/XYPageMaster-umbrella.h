@@ -13,7 +13,6 @@
 #import "NSURL+XYPageMaster.h"
 #import "UIViewController+XYPageMaster.h"
 #import "XYPageMaster.h"
-#import "XYPageMasterLifeCycleModule.h"
 #import "XYPageMasterNavigationController.h"
 #import "XYPageMasterViewController.h"
 #import "XYUrlAction.h"

@@ -53,9 +53,9 @@ static dispatch_once_t onceToken;
     return master;
 }
 
-- (void)setFileNamesOfURLMapping:(NSString *)fileName
+- (void)setFileNamesOfURLMapping:(NSArray *)fileNames
 {
-    _fileNamesOfURLMapping = fileName;
+    _fileNamesOfURLMapping = fileNames;
     [self loadViewControllerElements];
 }
 
@@ -243,13 +243,14 @@ static dispatch_once_t onceToken;
     if (!controller) return nil;
     BOOL isSingleton = NO;
     if ([[controller class] respondsToSelector:@selector(isSingleton)]) {
+        //根据此VC方法来区分是否单例页面
         isSingleton = [[controller class] isSingleton];
     }
     XYSingletonType singletonType = urlAction.singletonType;
-    if (isSingleton && singletonType != XYSingletonTypeNone) {
-        [self pushSingletonViewController:controller withURLAction:urlAction];
+    if (isSingleton) {
+        [self openSingletonViewController:controller withURLAction:urlAction];
     } else {
-        [self openViewController:controller withURLAction:urlAction];
+        [self openNoSingletonViewController:controller withURLAction:urlAction];
     }
     return controller;
 }
@@ -285,29 +286,118 @@ static dispatch_once_t onceToken;
     return NO;
 }
 
-- (void)openViewController:(UIViewController *)controller withURLAction:(XYUrlAction *)urlAction
+- (void)pushViewController:(UIViewController *)controller withURLAction:(XYUrlAction *)urlAction
 {
     if ([controller respondsToSelector:@selector(handleWithURLAction:)]) {
         [controller handleWithURLAction:urlAction];
     }
-    [self pushViewController:controller withURLAction:urlAction];
-}
-
-- (void)pushViewController:(UIViewController *)controller withURLAction:(XYUrlAction *)urlAction
-{
     if (!urlAction.naviTransition) {
-         [self.navigationContorller pushViewController:controller withAnimation:urlAction.animation == XYNaviAnimationPush];
+        [self.navigationContorller pushViewController:controller withAnimation:urlAction.animation == XYNaviAnimationPush];
     } else {
-         [self.navigationContorller pushViewController:controller withTransition:urlAction.naviTransition];
+        [self.navigationContorller pushViewController:controller withTransition:urlAction.naviTransition];
     }
 }
 
-- (void)pushSingletonViewController:(UIViewController *)controller withURLAction:(XYUrlAction *)urlAction
+- (void)openNoSingletonViewController:(UIViewController *)controller withURLAction:(XYUrlAction *)urlAction
 {
     if (!controller) return;
+    if (urlAction.singletonType == XYNoSingletonTypeNone) {
+        urlAction.singletonType = XYNoSingletonTypeDefault;
+    }
+    if (!(urlAction.singletonType == XYNoSingletonTypeDefault ||
+          urlAction.singletonType == XYNoSingletonTypeRenew   ||
+          urlAction.singletonType == XYNoSingletonTypeRetop   ||
+          urlAction.singletonType == XYNoSingletonTypeReuse)) {
+        return;//如果业务上层配置错误，将跳转不成功；
+    }
+    XYSingletonType singletonType = urlAction.singletonType;
+    if (singletonType == XYNoSingletonTypeDefault) {
+        if ([controller respondsToSelector:@selector(handleWithURLAction:)]) {
+            [controller handleWithURLAction:urlAction];
+        }
+        [self pushViewController:controller withURLAction:urlAction];
+    } else {
+        NSArray<UIViewController *> *viewControllers = self.navigationContorller.viewControllers;
+        if ([viewControllers.lastObject isKindOfClass:[controller class]]) {
+            //XYNoSingletonTypeRetop和XYNoSingletonTypeReuse
+            if (urlAction.singletonType != XYNoSingletonTypeRenew) {
+                return; //已在栈顶
+            }
+        }
+        NSInteger kCount = [viewControllers count];
+        NSInteger i = 0;
+        for (i = kCount - 1; i >= 0; i--) {
+            UIViewController *viewController = [viewControllers objectAtIndex:i];
+            if ([viewController isKindOfClass:[controller class]]) {
+                //在栈里找到了
+                if (urlAction.singletonType == XYNoSingletonTypeReuse || urlAction.singletonType == XYNoSingletonTypeRenew) {
+                    NSRange belowRange = NSMakeRange(0, i);
+                    NSArray <UIViewController *>*belowArray = [viewControllers subarrayWithRange:belowRange];
+                    NSRange topRange = NSMakeRange(i + 1, kCount - i - 1);
+                    NSArray <UIViewController *>*topArray = [viewControllers subarrayWithRange:topRange];
+                    UIViewController *obj = [viewControllers objectAtIndex:i];
+                    NSMutableArray <UIViewController *>*stacks = [NSMutableArray arrayWithArray:belowArray];
+                    [stacks addObjectsFromArray:topArray];
+                    if (urlAction.singletonType == XYNoSingletonTypeReuse) {
+                        //Reuse，不需要再调handleWithURLAction:
+                        [stacks addObject:obj];
+                        if (urlAction.naviTransition != nil) {
+                            [self.navigationContorller.view.layer addAnimation:urlAction.naviTransition.transition forKey:kCATransition];
+                        } else {
+                            CATransition *transition = [self defaultTransiton];
+                            [self.navigationContorller.view.layer addAnimation:transition forKey:kCATransition];
+                        }
+                        [self.navigationContorller setViewControllers:stacks animated:NO];
+                        
+                    } else {
+                        //Renew，需要再调handleWithURLAction:
+                        [self.navigationContorller setViewControllers:stacks animated:NO];
+                        if (urlAction.naviTransition != nil) {
+                            [self.navigationContorller pushViewController:controller withTransition:urlAction.naviTransition];
+                        } else {
+                            if ([controller respondsToSelector:@selector(handleWithURLAction:)]) {
+                                [controller handleWithURLAction:urlAction];
+                            }
+                            CATransition *transition = [self defaultTransiton];
+                            [self.navigationContorller.view.layer addAnimation:transition forKey:kCATransition];
+                            [self.navigationContorller pushViewController:controller animated:NO];
+                        }
+                    }
+                    
+                } else {
+                    //Retop，不需要再调handleWithURLAction:
+                    XYNaviAnimation animation = XYNaviAnimationNone;
+                    animation = urlAction.animation;
+                    [self.navigationContorller popToViewController:viewController withTransition:urlAction.naviTransition];
+                }
+                return;
+            }
+        }
+        //在栈里没找到，直接push一份
+        if (i < 0) {
+            [self pushViewController:controller withURLAction:urlAction];
+        }
+    }
+}
+
+- (void)openSingletonViewController:(UIViewController *)controller withURLAction:(XYUrlAction *)urlAction
+{
+    if (!controller) return;
+    if (urlAction.singletonType == XYNoSingletonTypeNone) {
+        urlAction.singletonType = XYSingletonTypeRetop;
+    }
+    if (!(urlAction.singletonType == XYSingletonTypeRetop ||
+        urlAction.singletonType == XYSingletonTypeReuse ||
+        urlAction.singletonType == XYSingletonTypeRenew)) {
+        return;//如果业务上层配置错误，将跳转不成功；
+    }
     NSArray<UIViewController *> *viewControllers = self.navigationContorller.viewControllers;
-    if ([viewControllers.lastObject isKindOfClass:[controller class]]) return;
-    
+    if ([viewControllers.lastObject isKindOfClass:[controller class]]) {
+        //XYSingletonTypeRetop和XYSingletonTypeReuse
+        if (urlAction.singletonType != XYSingletonTypeRenew) {
+            return;
+        }
+    }
     NSInteger kCount = [viewControllers count];
     NSInteger i = 0;
     for (i = kCount - 1; i >= 0; i--) {
@@ -323,7 +413,7 @@ static dispatch_once_t onceToken;
                 NSMutableArray <UIViewController *>*stacks = [NSMutableArray arrayWithArray:belowArray];
                 [stacks addObjectsFromArray:topArray];
                 if (urlAction.singletonType == XYSingletonTypeReuse) {
-                    //Reuse
+                    //Reuse，不需要再调handleWithURLAction:
                     [stacks addObject:obj];
                     if (urlAction.naviTransition != nil) {
                         [self.navigationContorller.view.layer addAnimation:urlAction.naviTransition.transition forKey:kCATransition];
@@ -334,7 +424,7 @@ static dispatch_once_t onceToken;
                     [self.navigationContorller setViewControllers:stacks animated:NO];
                     
                 } else {
-                    //Renew
+                    //Renew，需要再调handleWithURLAction:
                     [self.navigationContorller setViewControllers:stacks animated:NO];
                     if (urlAction.naviTransition != nil) {
                         [self.navigationContorller pushViewController:controller withTransition:urlAction.naviTransition];
@@ -349,7 +439,7 @@ static dispatch_once_t onceToken;
                 }
            
             } else {
-                //Retop
+                //Retop，不需要再调handleWithURLAction:
                 XYNaviAnimation animation = XYNaviAnimationNone;
                 animation = urlAction.animation;
                 [self.navigationContorller popToViewController:viewController withTransition:urlAction.naviTransition];
@@ -359,7 +449,7 @@ static dispatch_once_t onceToken;
     }
     //在栈里没找到
     if (i < 0) {
-        [self openViewController:controller withURLAction:urlAction];
+        [self pushViewController:controller withURLAction:urlAction];
     }
 }
 

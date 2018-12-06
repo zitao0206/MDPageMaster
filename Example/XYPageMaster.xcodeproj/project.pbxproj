@@ -255,6 +255,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = leon0206;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = BMP99N9345;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -495,6 +498,7 @@
 			baseConfigurationReference = 9453F539F73C845C5D113FF0 /* Pods-XYPageMaster_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BMP99N9345;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XYPageMaster/XYPageMaster-Prefix.pch";
 				INFOPLIST_FILE = "XYPageMaster/XYPageMaster-Info.plist";
@@ -510,6 +514,7 @@
 			baseConfigurationReference = DCCA714F18EF3F509002C088 /* Pods-XYPageMaster_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BMP99N9345;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XYPageMaster/XYPageMaster-Prefix.pch";
 				INFOPLIST_FILE = "XYPageMaster/XYPageMaster-Info.plist";

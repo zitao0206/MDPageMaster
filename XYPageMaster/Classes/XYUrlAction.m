@@ -17,14 +17,14 @@
 {
     if (self = [super init]) {
         _url = url;
-//        _callBackBoard = [XYReactBlackBoard new];
+        _callBackBoard = [XYReactBlackBoard new];
         NSDictionary *dic = [url parseQuery];
         _params = [NSMutableDictionary dictionary];
         for (NSString *key in [dic allKeys]) {
             id value = [dic objectForKey:key];
             [_params setObject:value forKey:[key lowercaseString]];
         }
-        _singletonType = XYSingletonTypeRetop;
+        _singletonType = XYNoSingletonTypeNone;
         if ([_params objectForKey:@"singletontype"]) {
             _singletonType = [[_params objectForKey:@"singletontype"] integerValue];
         }
