@@ -6,7 +6,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XYReactBlackBoard.h"
 
 typedef NS_ENUM(NSInteger, XYSingletonType) {
     
@@ -58,10 +57,6 @@ typedef void(^CallBack)(id result);
  回调block
  */
 @property (nonatomic, strong) CallBack callBack;
-/**
- 数据的正反向传递黑板；
- */
-@property (nonatomic, strong) XYReactBlackBoard *callBackBoard;
 
 + (id)actionWithURL:(NSURL *)url;
 + (id)actionWithURLString:(NSString *)urlString;
