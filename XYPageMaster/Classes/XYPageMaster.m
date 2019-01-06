@@ -61,7 +61,7 @@ static dispatch_once_t onceToken;
 
 - (void)setupNavigationControllerWithParams:(NSDictionary *)params
 {
-    //eg: params = @{@"schema":@"xiaoying",@"pagesFile":@"urlmapping",@"rootVC":@"XYHomeTabBarVC",@"rootVC_SB":@"Main"};
+    //eg: params = @{@"schema":@"xiaoying",@"pagesFile":@"urlmapping",@"rootVC":@"XYHomeTabViewController",@"mainBundle":@"Main"};
     if (!params) return;
     self.urlScheme = [params objectForKey:@"schema"];
     if (self.urlScheme.length < 1) return;

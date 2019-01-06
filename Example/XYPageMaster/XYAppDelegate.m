@@ -23,7 +23,7 @@
 
 - (void)setupPageMaster
 {
-    NSDictionary *params = @{@"schema":@"xiaoying",@"pagesFile":@"urlmapping",@"rootVC":@"XYHomeTabViewController",@"rootVC_SB":@""};
+    NSDictionary *params = @{@"schema":@"xiaoying",@"pagesFile":@"urlmapping",@"rootVC":@"XYHomeTabViewController",@"mainBundle":@"Main"};
     [[XYPageMaster master] setupNavigationControllerWithParams:params];
     self.window.rootViewController = [XYPageMaster master].navigationContorller;
 }
