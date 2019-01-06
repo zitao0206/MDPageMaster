@@ -53,9 +53,9 @@ static dispatch_once_t onceToken;
     return master;
 }
 
-- (void)setFileNamesOfURLMapping:(NSArray *)fileNames
+- (void)setFileNamesOfURLMapping:(NSString *)fileName
 {
-    _fileNamesOfURLMapping = fileNames;
+    _fileNamesOfURLMapping = fileName;
     [self loadViewControllerElements];
 }
 
@@ -246,7 +246,6 @@ static dispatch_once_t onceToken;
         //根据此VC方法来区分是否单例页面
         isSingleton = [[controller class] isSingleton];
     }
-    XYSingletonType singletonType = urlAction.singletonType;
     if (isSingleton) {
         [self openSingletonViewController:controller withURLAction:urlAction];
     } else {
@@ -312,9 +311,6 @@ static dispatch_once_t onceToken;
     }
     XYSingletonType singletonType = urlAction.singletonType;
     if (singletonType == XYNoSingletonTypeDefault) {
-        if ([controller respondsToSelector:@selector(handleWithURLAction:)]) {
-            [controller handleWithURLAction:urlAction];
-        }
         [self pushViewController:controller withURLAction:urlAction];
     } else {
         NSArray<UIViewController *> *viewControllers = self.navigationContorller.viewControllers;
@@ -338,6 +334,7 @@ static dispatch_once_t onceToken;
                     UIViewController *obj = [viewControllers objectAtIndex:i];
                     NSMutableArray <UIViewController *>*stacks = [NSMutableArray arrayWithArray:belowArray];
                     [stacks addObjectsFromArray:topArray];
+                    
                     if (urlAction.singletonType == XYNoSingletonTypeReuse) {
                         //Reuse，不需要再调handleWithURLAction:
                         [stacks addObject:obj];
@@ -352,12 +349,12 @@ static dispatch_once_t onceToken;
                     } else {
                         //Renew，需要再调handleWithURLAction:
                         [self.navigationContorller setViewControllers:stacks animated:NO];
+                        if ([controller respondsToSelector:@selector(handleWithURLAction:)]) {
+                            [controller handleWithURLAction:urlAction];
+                        }
                         if (urlAction.naviTransition != nil) {
                             [self.navigationContorller pushViewController:controller withTransition:urlAction.naviTransition];
                         } else {
-                            if ([controller respondsToSelector:@selector(handleWithURLAction:)]) {
-                                [controller handleWithURLAction:urlAction];
-                            }
                             CATransition *transition = [self defaultTransiton];
                             [self.navigationContorller.view.layer addAnimation:transition forKey:kCATransition];
                             [self.navigationContorller pushViewController:controller animated:NO];
