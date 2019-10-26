@@ -1,6 +1,0 @@
-framework module XYPageMaster {
-  umbrella header "XYPageMaster-umbrella.h"
-
-  export *
-  module * { export * }
-}

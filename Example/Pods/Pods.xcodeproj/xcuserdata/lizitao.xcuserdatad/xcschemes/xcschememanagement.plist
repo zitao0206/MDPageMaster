@@ -4,17 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-XYPageMaster_Example.xcscheme</key>
+		<key>FBSnapshotTestCase.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-XYPageMaster_Tests.xcscheme</key>
+		<key>MDPageMaster.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>XYPageMaster.xcscheme</key>
+		<key>Pods-MDPageMaster_Example.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MDPageMaster_Tests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

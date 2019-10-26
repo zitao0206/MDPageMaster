@@ -1,9 +1,9 @@
 //
-//  XYPageMasterTests.m
-//  XYPageMasterTests
+//  MDPageMasterTests.m
+//  MDPageMasterTests
 //
-//  Created by leon0206 on 08/30/2018.
-//  Copyright (c) 2018 leon0206. All rights reserved.
+//  Created by leon0206 on 10/26/2019.
+//  Copyright (c) 2019 leon0206. All rights reserved.
 //
 
 @import XCTest;

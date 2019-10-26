@@ -1,0 +1,6 @@
+framework module MDPageMaster {
+  umbrella header "MDPageMaster-umbrella.h"
+
+  export *
+  module * { export * }
+}
