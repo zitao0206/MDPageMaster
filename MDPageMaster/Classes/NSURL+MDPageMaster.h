@@ -1,6 +1,6 @@
 //
-//  NSURL+XYPageMaster.h
-//  XYPageMaster
+//  NSURL+MDPageMaster.h
+//  MDPageMaster
 //
 //  Created by lizitao on 18/5/4.
 //  Copyright © 2018年 lizitao. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSURL (XYPageMaster)
+@interface NSURL (MDPageMaster)
 
 /**
  将query解析为NSDictionary

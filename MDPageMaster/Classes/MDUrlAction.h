@@ -1,58 +1,58 @@
 //
-//  XYUrlAction.h
-//  XYPageMaster
+//  MDUrlAction.h
+//  MDPageMaster
 //
 //  Created by lizitao on 2018/5/4.
 //
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, XYSingletonType) {
+typedef NS_ENUM(NSInteger, MDSingletonType) {
     
-    /*******默认值，单例模式下为XYSingletonTypeRetop，非单例模式下为XYNoSingletonTypeDefault ****/
-    XYNoSingletonTypeNone = 0,
+    /*******默认值，单例模式下为SingletonTypeRetop，非单例模式下为NoSingletonTypeDefault ****/
+    MDNoSingletonTypeNone = 0,
     
     /**** 单例页面：isSingleton方法默认为YES ****/
-    XYSingletonTypeRetop,//栈中已有时，popTo此vc，例如首页vc
-    XYSingletonTypeReuse,//栈中已有时，移动此vc到栈顶，例如登录页
-    XYSingletonTypeRenew,//栈中已有时，去除栈中vc再push新vc，例如camera页
+    MDSingletonTypeRetop,//栈中已有时，popTo此vc，例如首页vc
+    MDSingletonTypeReuse,//栈中已有时，移动此vc到栈顶，例如登录页
+    MDSingletonTypeRenew,//栈中已有时，去除栈中vc再push新vc，例如camera页
     
     /**** 非单例页面：须重写isSingleton方法为NO ****/
-    XYNoSingletonTypeDefault,//vc可以循环进栈
-    XYNoSingletonTypeRetop,//栈中已有时，popTo此vc
-    XYNoSingletonTypeReuse,//栈中已有时，移动此vc到栈顶
-    XYNoSingletonTypeRenew//栈中已有时，去除栈中vc再push新vc，例如XYWebViewVC
+    MDNoSingletonTypeDefault,//vc可以循环进栈
+    MDNoSingletonTypeRetop,//栈中已有时，popTo此vc
+    MDNoSingletonTypeReuse,//栈中已有时，移动此vc到栈顶
+    MDNoSingletonTypeRenew//栈中已有时，去除栈中vc再push新vc，例如WebViewVC
 };
 
-typedef NSInteger XYNaviAnimation;
-#define XYNaviAnimationNone         -1 // 没有动画，不支持自定义Transition
-#define XYNaviAnimationPush          0 // 标准的导航压入动画，不支持自定义Transition
-#define XYNaviAnimationTransition    1 // 禁掉原生导航动画，支持自定义Transition
+typedef NSInteger MDNaviAnimation;
+#define MDNaviAnimationNone         -1 // 没有动画，不支持自定义Transition
+#define MDNaviAnimationPush          0 // 标准的导航压入动画，不支持自定义Transition
+#define MDNaviAnimationTransition    1 // 禁掉原生导航动画，支持自定义Transition
 
 typedef void(^CallBack)(id result);
 
-@interface XYNaviTransition : NSObject
-@property (nonatomic, assign) XYNaviAnimation animation;
+@interface MDNaviTransition : NSObject
+@property (nonatomic, assign) MDNaviAnimation animation;
 @property (nonatomic, strong) CATransition  *transition;
 
 @end
 
-@interface XYUrlAction : NSObject
+@interface MDUrlAction : NSObject
 
 @property (nonatomic, strong, readonly) NSURL *url;
 /**
- 单例类型，默认为XYSingletonTypeRetop
+ 单例类型，默认为SingletonTypeRetop
  */
-@property (nonatomic, assign) XYSingletonType singletonType;
+@property (nonatomic, assign) MDSingletonType singletonType;
 /**
  系统的导航动画
  */
-@property (nonatomic, assign) XYNaviAnimation animation;
+@property (nonatomic, assign) MDNaviAnimation animation;
 /**
  导航动画
  支持 CATransition
  */
-@property (nonatomic, strong) XYNaviTransition *naviTransition;
+@property (nonatomic, strong) MDNaviTransition *naviTransition;
 /**
  回调block
  */

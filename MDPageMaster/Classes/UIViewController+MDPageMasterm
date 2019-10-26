@@ -1,13 +1,13 @@
 //
-//  UIViewController+XYPageMaster.m
-//  XYPageMaster
+//  UIViewController+MDPageMaster.m
+//  MDPageMaster
 //
 //  Created by lizitao on 2018/5/4.
 //
 
-#import "UIViewController+XYPageMaster.h"
+#import "UIViewController+MDPageMaster.h"
 
-@implementation UIViewController (XYPageMaster)
+@implementation UIViewController (MDPageMaster)
 
 + (BOOL)isSingleton
 {
@@ -15,7 +15,7 @@
     return YES;
 }
 
-- (void)handleWithURLAction:(XYUrlAction *)urlAction
+- (void)handleWithURLAction:(MDUrlAction *)urlAction
 {
     
 }

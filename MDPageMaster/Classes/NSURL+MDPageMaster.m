@@ -1,14 +1,14 @@
 //
-//  NSURL+XYPageMaster.m
-//  XYPageMaster
+//  NSURL+MDPageMaster.m
+//  MDPageMaster
 //
 //  Created by lizitao on 18/5/4.
 //  Copyright © 2018年 lizitao. All rights reserved.
 //
 
-#import "NSURL+XYPageMaster.h"
+#import "NSURL+MDPageMaster.h"
 
-@implementation NSURL (XYPageMaster)
+@implementation NSURL (MDPageMaster)
 
 - (NSDictionary *)parseQuery
 {

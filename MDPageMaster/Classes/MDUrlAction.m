@@ -1,17 +1,17 @@
 //
-//  XYUrlAction.m
-//  XYPageMaster
+//  MDUrlAction.m
+//  MDPageMaster
 //
 //  Created by lizitao on 2018/5/4.
 //
 
-#import "XYUrlAction.h"
-#import "NSURL+XYPageMaster.h"
-@interface XYUrlAction ()
+#import "MDUrlAction.h"
+#import "NSURL+MDPageMaster.h"
+@interface MDUrlAction ()
 @property (nonatomic, strong) NSMutableDictionary *params;
 @end
 
-@implementation XYUrlAction
+@implementation MDUrlAction
 
 - (id)initWithURL:(NSURL *)url
 {
@@ -23,7 +23,7 @@
             id value = [dic objectForKey:key];
             [_params setObject:value forKey:[key lowercaseString]];
         }
-        _singletonType = XYNoSingletonTypeNone;
+        _singletonType = MDNoSingletonTypeNone;
         if ([_params objectForKey:@"singletontype"]) {
             _singletonType = [[_params objectForKey:@"singletontype"] integerValue];
         }
@@ -35,7 +35,7 @@
 + (id)actionWithURL:(NSURL *)url
 {
     if (![url isKindOfClass:[NSURL class]]) return nil;
-    return [[XYUrlAction alloc] initWithURL:url];
+    return [[MDUrlAction alloc] initWithURL:url];
 }
 
 + (id)actionWithURLString:(NSString *)urlString
@@ -140,7 +140,7 @@
 
 @end
 
-@implementation XYNaviTransition
+@implementation MDNaviTransition
 
 - (id)init
 {
@@ -150,7 +150,7 @@
         _transition.type = kCATransitionPush;
         _transition.subtype = kCATransitionFromRight;
         _transition.duration = 0.3;
-        _animation = XYNaviAnimationPush;
+        _animation = MDNaviAnimationPush;
     }
     return self;
 }

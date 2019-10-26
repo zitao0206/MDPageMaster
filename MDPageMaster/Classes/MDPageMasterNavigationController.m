@@ -1,17 +1,17 @@
 //
-//  XYPageMasterNavigationController.m
-//  XYPageMaster
+//  MDPageMasterNavigationController.m
+//  MDPageMaster
 //
 //  Created by lizitao on 2018/5/7.
 //
 
-#import "XYPageMasterNavigationController.h"
+#import "MDPageMasterNavigationController.h"
 
-@interface XYPageMasterNavigationController ()<UINavigationControllerDelegate,UIGestureRecognizerDelegate>
+@interface MDPageMasterNavigationController ()<UINavigationControllerDelegate,UIGestureRecognizerDelegate>
 
 @end
 
-@implementation XYPageMasterNavigationController
+@implementation MDPageMasterNavigationController
 
 - (void)viewDidLoad
 {
@@ -75,61 +75,53 @@
     [super pushViewController:viewController animated:animated];
 }
 
-- (void)pushViewController:(UIViewController *)viewController withTransition:(XYNaviTransition *)naviTransition
+- (void)pushViewController:(UIViewController *)viewController withTransition:(MDNaviTransition *)naviTransition
 {
     if (!viewController) return;
-    if (naviTransition.animation == XYNaviAnimationTransition) {
+    if (naviTransition.animation == MDNaviAnimationTransition) {
         if (naviTransition.transition != nil) {
             [self.view.layer addAnimation:naviTransition.transition forKey:kCATransition];
             [self pushViewController:viewController animated:NO];
             return;
         }
     }
-    [super pushViewController:viewController animated:(naviTransition.animation == XYNaviAnimationPush)];
+    [super pushViewController:viewController animated:(naviTransition.animation == MDNaviAnimationPush)];
 }
 
-- (void)popToViewController:(UIViewController *)viewController withTransition:(XYNaviTransition *)naviTransition
+- (void)popToViewController:(UIViewController *)viewController withTransition:(MDNaviTransition *)naviTransition
 {
-    if (naviTransition.animation == XYNaviAnimationTransition) {
+    if (naviTransition.animation == MDNaviAnimationTransition) {
         if (naviTransition.transition != nil) {
             [self.view.layer addAnimation:naviTransition.transition forKey:kCATransition];
             [self popToViewController:viewController animated:NO];
             return;
         }
     }
-    [self popToViewController:viewController animated:(naviTransition.animation == XYNaviAnimationPush)];
+    [self popToViewController:viewController animated:(naviTransition.animation == MDNaviAnimationPush)];
 }
 
-- (void)popCurrentViewControllerWithTransition:(XYNaviTransition *)naviTransition
+- (void)popCurrentViewControllerWithTransition:(MDNaviTransition *)naviTransition
 {
-    if (naviTransition.animation == XYNaviAnimationTransition) {
+    if (naviTransition.animation == MDNaviAnimationTransition) {
         if (naviTransition.transition != nil) {
             [self.view.layer addAnimation:naviTransition.transition forKey:kCATransition];
             [self popViewControllerAnimated:NO];
             return;
         }
     }
-    [self popViewControllerAnimated:naviTransition.animation == XYNaviAnimationPush];
+    [self popViewControllerAnimated:naviTransition.animation == MDNaviAnimationPush];
 }
 
-- (void)popToHomeViewControllerWithTransition:(XYNaviTransition *)naviTransition
+- (void)popToHomeViewControllerWithTransition:(MDNaviTransition *)naviTransition
 {
-    if (naviTransition.animation == XYNaviAnimationTransition) {
+    if (naviTransition.animation == MDNaviAnimationTransition) {
         if (naviTransition.transition != nil) {
             [self.view.layer addAnimation:naviTransition.transition forKey:kCATransition];
             [self popToRootViewControllerAnimated:NO];
             return;
         }
     }
-    [self popToRootViewControllerAnimated:naviTransition.animation == XYNaviAnimationPush];
-}
-
-- (UIViewController *)childViewControllerForStatusBarHidden {
-    return self.topViewController;
-}
-
-- (UIViewController *)childViewControllerForStatusBarStyle {
-    return self.topViewController;
+    [self popToRootViewControllerAnimated:naviTransition.animation == MDNaviAnimationPush];
 }
 
 @end

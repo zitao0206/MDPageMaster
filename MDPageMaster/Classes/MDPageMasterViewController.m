@@ -1,17 +1,17 @@
 //
-//  XYPageMasterViewController.m
-//  XYPageMaster
+//  MDPageMasterViewController.m
+//  MDPageMaster
 //
 //  Created by lizitao on 2018/6/1.
 //
 
-#import "XYPageMasterViewController.h"
-#import "XYPageMaster.h"
+#import "MDPageMasterViewController.h"
+#import "MDPageMaster.h"
 
-@interface XYPageMasterViewController ()<UIGestureRecognizerDelegate>
+@interface MDPageMasterViewController ()<UIGestureRecognizerDelegate>
 @end
 
-@implementation XYPageMasterViewController
+@implementation MDPageMasterViewController
 
 - (void)viewDidLoad
 {
@@ -23,14 +23,14 @@
 {
     [super viewWillAppear:animated];
     __weak typeof(self) weakSelf = self;
-    [XYPageMaster master].navigationContorller.interactivePopGestureRecognizer.delegate = weakSelf;
+    [MDPageMaster master].navigationContorller.interactivePopGestureRecognizer.delegate = weakSelf;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     //页面消失后，把delegate还原
-    [XYPageMaster master].navigationContorller.interactivePopGestureRecognizer.delegate = [XYPageMaster master].navigationContorller;
+    [MDPageMaster master].navigationContorller.interactivePopGestureRecognizer.delegate = [MDPageMaster master].navigationContorller;
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
@@ -42,7 +42,7 @@
 - (void)dealloc
 {
 #if DEBUG
-    NSLog(@"XYPageMaster---->%@ dealloc!",NSStringFromClass([self class]));
+    NSLog(@"MDPageMaster---->%@ dealloc!",NSStringFromClass([self class]));
 #endif
 }
 

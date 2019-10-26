@@ -1,14 +1,14 @@
 //
-//  XYPageMaster.m
-//  XYPageMaster
+//  MDPageMaster.m
+//  MDPageMaster
 //
 //  Created by lizitao on 2018/5/4.
 //
 
-#import "XYPageMaster.h"
+#import "MDPageMaster.h"
 
-@interface XYPageMaster ()
-@property (nonatomic, strong) XYPageMasterNavigationController *rootNavigationController;
+@interface MDPageMaster ()
+@property (nonatomic, strong) MDPageMasterNavigationController *rootNavigationController;
 @property (nonatomic, strong) NSString *urlScheme;
 @property (nonatomic, strong) NSString *fileNamesOfURLMapping;
 @property (nonatomic, strong) NSString *rootVCName;
@@ -16,9 +16,9 @@
 @property (nonatomic, strong) NSMutableDictionary <NSString *, NSArray *>*urlMapping;
 @end
 
-@implementation XYPageMaster
+@implementation MDPageMaster
 
-static XYPageMaster *master;
+static MDPageMaster *master;
 static dispatch_once_t onceToken;
 @synthesize urlScheme = _urlScheme;
 @synthesize fileNamesOfURLMapping = _fileNamesOfURLMapping;
@@ -61,7 +61,7 @@ static dispatch_once_t onceToken;
 
 - (void)setupNavigationControllerWithParams:(NSDictionary *)params
 {
-    //eg: params = @{@"schema":@"xiaoying",@"pagesFile":@"urlmapping",@"rootVC":@"XYHomeTabViewController",@"mainBundle":@"Main"};
+    //eg: params = @{@"schema":@"xiaoying",@"pagesFile":@"urlmapping",@"rootVC":@"HomeTabViewController",@"mainBundle":@"Main"};
     if (!params) return;
     self.urlScheme = [params objectForKey:@"schema"];
     if (self.urlScheme.length < 1) return;
@@ -84,19 +84,19 @@ static dispatch_once_t onceToken;
         } else {
             homeViewController = [[NSClassFromString(self.rootVCName) alloc]init];
         }
-        _rootNavigationController = [[XYPageMasterNavigationController alloc] initWithRootViewController:homeViewController];
+        _rootNavigationController = [[MDPageMasterNavigationController alloc] initWithRootViewController:homeViewController];
     }
-    [[XYPageMaster master] setNavigationController:self.rootNavigationController];
+    [[MDPageMaster master] setNavigationController:self.rootNavigationController];
 }
 
 - (void)resetNavigationController
 {
      self.rootNavigationController = nil;
      [self setupRootNavigationController];
-     [[XYPageMaster master] setNavigationController:self.rootNavigationController];
+     [[MDPageMaster master] setNavigationController:self.rootNavigationController];
 }
 
-- (void)setNavigationController:(XYPageMasterNavigationController *)navigationContorller
+- (void)setNavigationController:(MDPageMasterNavigationController *)navigationContorller
 {
     _navigationContorller = navigationContorller;
 }
@@ -167,19 +167,19 @@ static dispatch_once_t onceToken;
     return _urlMapping;
 }
 
-- (void)openURLAction:(XYUrlAction *)urlAction result:(void(^)(NSString *viewController))result
+- (void)openURLAction:(MDUrlAction *)urlAction result:(void(^)(NSString *viewController))result
 {
-    if (![urlAction isKindOfClass:[XYUrlAction class]]) return;
+    if (![urlAction isKindOfClass:[MDUrlAction class]]) return;
     NSString *viewController = [self obtainClassFromURLAction:urlAction];
     if (result) {
         result(viewController);
     }
 }
 
-- (void)openUrl:(NSString *)url action:(void(^)(XYUrlAction *action))actionBlock
+- (void)openUrl:(NSString *)url action:(void(^)(MDUrlAction *action))actionBlock
 {
     if (url.length <= 0) return;
-    XYUrlAction *action = [XYUrlAction actionWithURL:[NSURL URLWithString:url]];
+    MDUrlAction *action = [MDUrlAction actionWithURL:[NSURL URLWithString:url]];
     if (actionBlock) {
         actionBlock(action);
     }
@@ -189,21 +189,21 @@ static dispatch_once_t onceToken;
     });
 }
 
-- (void)openURLAction:(XYUrlAction *)urlAction
+- (void)openURLAction:(MDUrlAction *)urlAction
 {
-    if (![urlAction isKindOfClass:[XYUrlAction class]]) return;
+    if (![urlAction isKindOfClass:[MDUrlAction class]]) return;
     if (!self.navigationContorller) return;
     dispatch_async(dispatch_get_main_queue(), ^{
         [self handleOpenURLAction:urlAction];
     });
 }
 
-- (UIViewController *)handleOpenURLAction:(XYUrlAction *)urlAction
+- (UIViewController *)handleOpenURLAction:(MDUrlAction *)urlAction
 {
     return [self obtainControllerURLAction:urlAction];
 }
 
-- (UIViewController *)obtainControllerURLAction:(XYUrlAction *)urlAction
+- (UIViewController *)obtainControllerURLAction:(MDUrlAction *)urlAction
 {
     UIViewController *controller = nil;
     
@@ -254,7 +254,7 @@ static dispatch_once_t onceToken;
     return controller;
 }
 
-- (NSString *)obtainClassFromURLAction:(XYUrlAction *)urlAction
+- (NSString *)obtainClassFromURLAction:(MDUrlAction *)urlAction
 {
     if (urlAction.url.host.length < 1) return nil;
     NSString *class = nil;
@@ -266,7 +266,7 @@ static dispatch_once_t onceToken;
     return class;
 }
 
-- (NSString *)obtainKeyFromURLAction:(XYUrlAction *)urlAction
+- (NSString *)obtainKeyFromURLAction:(MDUrlAction *)urlAction
 {
     NSString *key = [urlAction.url.host lowercaseString];
     if (key.length < 1) return nil;
@@ -285,38 +285,38 @@ static dispatch_once_t onceToken;
     return NO;
 }
 
-- (void)pushViewController:(UIViewController *)controller withURLAction:(XYUrlAction *)urlAction
+- (void)pushViewController:(UIViewController *)controller withURLAction:(MDUrlAction *)urlAction
 {
     if ([controller respondsToSelector:@selector(handleWithURLAction:)]) {
         [controller handleWithURLAction:urlAction];
     }
     if (!urlAction.naviTransition) {
-        [self.navigationContorller pushViewController:controller withAnimation:urlAction.animation == XYNaviAnimationPush];
+        [self.navigationContorller pushViewController:controller withAnimation:urlAction.animation == MDNaviAnimationPush];
     } else {
         [self.navigationContorller pushViewController:controller withTransition:urlAction.naviTransition];
     }
 }
 
-- (void)openNoSingletonViewController:(UIViewController *)controller withURLAction:(XYUrlAction *)urlAction
+- (void)openNoSingletonViewController:(UIViewController *)controller withURLAction:(MDUrlAction *)urlAction
 {
     if (!controller) return;
-    if (urlAction.singletonType == XYNoSingletonTypeNone) {
-        urlAction.singletonType = XYNoSingletonTypeDefault;
+    if (urlAction.singletonType == MDNoSingletonTypeNone) {
+        urlAction.singletonType = MDNoSingletonTypeDefault;
     }
-    if (!(urlAction.singletonType == XYNoSingletonTypeDefault ||
-          urlAction.singletonType == XYNoSingletonTypeRenew   ||
-          urlAction.singletonType == XYNoSingletonTypeRetop   ||
-          urlAction.singletonType == XYNoSingletonTypeReuse)) {
+    if (!(urlAction.singletonType == MDNoSingletonTypeDefault ||
+          urlAction.singletonType == MDNoSingletonTypeRenew   ||
+          urlAction.singletonType == MDNoSingletonTypeRetop   ||
+          urlAction.singletonType == MDNoSingletonTypeReuse)) {
         return;//如果业务上层配置错误，将跳转不成功；
     }
-    XYSingletonType singletonType = urlAction.singletonType;
-    if (singletonType == XYNoSingletonTypeDefault) {
+    MDSingletonType singletonType = urlAction.singletonType;
+    if (singletonType == MDNoSingletonTypeDefault) {
         [self pushViewController:controller withURLAction:urlAction];
     } else {
         NSArray<UIViewController *> *viewControllers = self.navigationContorller.viewControllers;
         if ([viewControllers.lastObject isKindOfClass:[controller class]]) {
-            //XYNoSingletonTypeRetop和XYNoSingletonTypeReuse
-            if (urlAction.singletonType != XYNoSingletonTypeRenew) {
+            //NoSingletonTypeRetop和NoSingletonTypeReuse
+            if (urlAction.singletonType != MDNoSingletonTypeRenew) {
                 return; //已在栈顶
             }
         }
@@ -326,7 +326,7 @@ static dispatch_once_t onceToken;
             UIViewController *viewController = [viewControllers objectAtIndex:i];
             if ([viewController isKindOfClass:[controller class]]) {
                 //在栈里找到了
-                if (urlAction.singletonType == XYNoSingletonTypeReuse || urlAction.singletonType == XYNoSingletonTypeRenew) {
+                if (urlAction.singletonType == MDNoSingletonTypeReuse || urlAction.singletonType == MDNoSingletonTypeRenew) {
                     NSRange belowRange = NSMakeRange(0, i);
                     NSArray <UIViewController *>*belowArray = [viewControllers subarrayWithRange:belowRange];
                     NSRange topRange = NSMakeRange(i + 1, kCount - i - 1);
@@ -335,7 +335,7 @@ static dispatch_once_t onceToken;
                     NSMutableArray <UIViewController *>*stacks = [NSMutableArray arrayWithArray:belowArray];
                     [stacks addObjectsFromArray:topArray];
                     
-                    if (urlAction.singletonType == XYNoSingletonTypeReuse) {
+                    if (urlAction.singletonType == MDNoSingletonTypeReuse) {
                         //Reuse，不需要再调handleWithURLAction:
                         [stacks addObject:obj];
                         if (urlAction.naviTransition != nil) {
@@ -363,7 +363,7 @@ static dispatch_once_t onceToken;
                     
                 } else {
                     //Retop，不需要再调handleWithURLAction:
-                    XYNaviAnimation animation = XYNaviAnimationNone;
+                    MDNaviAnimation animation = MDNaviAnimationNone;
                     animation = urlAction.animation;
                     [self.navigationContorller popToViewController:viewController withTransition:urlAction.naviTransition];
                 }
@@ -377,21 +377,21 @@ static dispatch_once_t onceToken;
     }
 }
 
-- (void)openSingletonViewController:(UIViewController *)controller withURLAction:(XYUrlAction *)urlAction
+- (void)openSingletonViewController:(UIViewController *)controller withURLAction:(MDUrlAction *)urlAction
 {
     if (!controller) return;
-    if (urlAction.singletonType == XYNoSingletonTypeNone) {
-        urlAction.singletonType = XYSingletonTypeRetop;
+    if (urlAction.singletonType == MDNoSingletonTypeNone) {
+        urlAction.singletonType = MDSingletonTypeRetop;
     }
-    if (!(urlAction.singletonType == XYSingletonTypeRetop ||
-        urlAction.singletonType == XYSingletonTypeReuse ||
-        urlAction.singletonType == XYSingletonTypeRenew)) {
+    if (!(urlAction.singletonType == MDSingletonTypeRetop ||
+        urlAction.singletonType == MDSingletonTypeReuse ||
+        urlAction.singletonType == MDSingletonTypeRenew)) {
         return;//如果业务上层配置错误，将跳转不成功；
     }
     NSArray<UIViewController *> *viewControllers = self.navigationContorller.viewControllers;
     if ([viewControllers.lastObject isKindOfClass:[controller class]]) {
-        //XYSingletonTypeRetop和XYSingletonTypeReuse
-        if (urlAction.singletonType != XYSingletonTypeRenew) {
+        //SingletonTypeRetop和SingletonTypeReuse
+        if (urlAction.singletonType != MDSingletonTypeRenew) {
             return;
         }
     }
@@ -401,7 +401,7 @@ static dispatch_once_t onceToken;
         UIViewController *viewController = [viewControllers objectAtIndex:i];
         if ([viewController isKindOfClass:[controller class]]) {
             //在栈里找到了
-            if (urlAction.singletonType == XYSingletonTypeReuse || urlAction.singletonType == XYSingletonTypeRenew) {
+            if (urlAction.singletonType == MDSingletonTypeReuse || urlAction.singletonType == MDSingletonTypeRenew) {
                 NSRange belowRange = NSMakeRange(0, i);
                 NSArray <UIViewController *>*belowArray = [viewControllers subarrayWithRange:belowRange];
                 NSRange topRange = NSMakeRange(i + 1, kCount - i - 1);
@@ -409,7 +409,7 @@ static dispatch_once_t onceToken;
                 UIViewController *obj = [viewControllers objectAtIndex:i];
                 NSMutableArray <UIViewController *>*stacks = [NSMutableArray arrayWithArray:belowArray];
                 [stacks addObjectsFromArray:topArray];
-                if (urlAction.singletonType == XYSingletonTypeReuse) {
+                if (urlAction.singletonType == MDSingletonTypeReuse) {
                     //Reuse，不需要再调handleWithURLAction:
                     [stacks addObject:obj];
                     if (urlAction.naviTransition != nil) {
@@ -437,7 +437,7 @@ static dispatch_once_t onceToken;
            
             } else {
                 //Retop，不需要再调handleWithURLAction:
-                XYNaviAnimation animation = XYNaviAnimationNone;
+                MDNaviAnimation animation = MDNaviAnimationNone;
                 animation = urlAction.animation;
                 [self.navigationContorller popToViewController:viewController withTransition:urlAction.naviTransition];
             }
