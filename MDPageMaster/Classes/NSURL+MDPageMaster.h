@@ -2,8 +2,8 @@
 //  NSURL+MDPageMaster.h
 //  MDPageMaster
 //
-//  Created by lizitao on 18/5/4.
-//  Copyright © 2018年 lizitao. All rights reserved.
+//  Created by Leon on 18/5/4.
+//  Copyright © 2018年 Leon. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
