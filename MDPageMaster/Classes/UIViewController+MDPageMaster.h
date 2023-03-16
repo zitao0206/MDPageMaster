@@ -2,7 +2,7 @@
 //  UIViewController+MDPageMaster.h
 //  MDPageMaster
 //
-//  Created by Leon on 2018/5/4.
+//  Created by zitao0206 on 2018/5/4.
 //
 
 #import <UIKit/UIKit.h>
@@ -10,11 +10,11 @@
 
 @interface UIViewController (MDPageMaster)
 /**
- 通过此方法实现数据的正向传递
+ Data transfer by this method
  */
 - (void)handleWithURLAction:(MDUrlAction *)urlAction;
 /**
- 是否堆栈中唯一，默认YES堆栈中唯一。
+ Whether unique in the stack, default YES unique in the stack.
  */
 + (BOOL)isSingleton;
 

@@ -1,22 +1,22 @@
 {
   "name": "MDPageMaster",
-  "version": "0.1.0",
+  "version": "2.0.19",
   "summary": "A short description of MDPageMaster.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/leon0206/MDPageMaster",
+  "homepage": "https://github.com/zitao0206/MDPageMaster",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "leon0206": "634376133@qq.com"
+    "zitao0206": "634376133@qq.com"
   },
   "source": {
-    "git": "https://github.com/leon0206/MDPageMaster.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/zitao0206/MDPageMaster.git",
+    "tag": "2.0.19"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
   "source_files": "MDPageMaster/Classes/**/*"
 }

@@ -2,7 +2,7 @@
 //  MDPageMasterViewController.m
 //  MDPageMaster
 //
-//  Created by Leon on 2018/6/1.
+//  Created by zitao0206 on 2018/6/1.
 //
 
 #import "MDPageMasterViewController.h"
@@ -35,7 +35,7 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-    //默认支持侧滑退出，业务继承自定义。
+    // Default support for side-swipe exit, business inheritance customization.
     return YES;
 }
 

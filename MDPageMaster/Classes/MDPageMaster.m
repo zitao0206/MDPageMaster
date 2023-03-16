@@ -2,7 +2,7 @@
 //  MDPageMaster.m
 //  MDPageMaster
 //
-//  Created by Leon on 2018/5/4.
+//  Created by zitao0206 on 2018/5/4.
 //
 
 #import "MDPageMaster.h"
@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *rootVCName;
 @property (nonatomic, strong) NSString *rootVC_SB;
 @property (nonatomic, strong) NSMutableDictionary <NSString *, NSArray *>*urlMapping;
+
 @end
 
 @implementation MDPageMaster
@@ -61,7 +62,7 @@ static dispatch_once_t onceToken;
 
 - (void)setupNavigationControllerWithParams:(NSDictionary *)params
 {
-    //eg: params = @{@"schema":@"xiaoying",@"pagesFile":@"urlmapping",@"rootVC":@"HomeTabViewController",@"mainBundle":@"Main"};
+    //eg: params = @{@"schema":@"weixin",@"pagesFile":@"urlmapping",@"rootVC":@"HomeTabViewController",@"mainBundle":@"Main"};
     if (!params) return;
     self.urlScheme = [params objectForKey:@"schema"];
     if (self.urlScheme.length < 1) return;
@@ -69,7 +70,7 @@ static dispatch_once_t onceToken;
     if (self.fileNamesOfURLMapping.length < 1) return;
     self.rootVCName = [params objectForKey:@"rootVC"];
     if (self.rootVCName.length < 1) return;
-    //storyboard信息
+    //the info of storyboard
     self.rootVC_SB = [params objectForKey:@"rootVC_SB"];
     [self setupRootNavigationController];
 }
@@ -211,7 +212,7 @@ static dispatch_once_t onceToken;
     if (key.length < 1) return nil;
     NSArray *array = [_urlMapping objectForKey:key];
    
-    //storyboard跳转，默认mainBundle中
+    //Storyboard jump, in mainBundle by default
     if (array.count == 2) {
         NSString *storyboardName = array.lastObject;
         if (storyboardName.length > 0) {
@@ -221,7 +222,7 @@ static dispatch_once_t onceToken;
             controller = [storyboard instantiateViewControllerWithIdentifier:class];
         }
     }
-    //storyboard跳转，自定义Bundle中
+    //Storyboard jump, customized Bundle
     if (array.count == 3) {
         NSString *storyboardName = array[1];
         NSString *bundleName = array.lastObject;;
@@ -234,7 +235,7 @@ static dispatch_once_t onceToken;
             controller = [storyboard instantiateViewControllerWithIdentifier:class];
         }
     }
-    //非storyboard
+    //Non-storyboard
     if (array.count == 1) {
         NSString *class = [self obtainClassFromURLAction:urlAction];
         controller = [NSClassFromString(class) new];
@@ -243,7 +244,7 @@ static dispatch_once_t onceToken;
     if (!controller) return nil;
     BOOL isSingleton = NO;
     if ([[controller class] respondsToSelector:@selector(isSingleton)]) {
-        //根据此VC方法来区分是否单例页面
+        //According to this VC method to distinguish whether a single page
         isSingleton = [[controller class] isSingleton];
     }
     if (isSingleton) {

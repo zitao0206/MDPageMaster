@@ -4,10 +4,5 @@ platform :ios, '8.0'
 
 target 'MDPageMaster_Example' do
   pod 'MDPageMaster', :path => '../'
-
-  target 'MDPageMaster_Tests' do
-    inherit! :search_paths
-
-    pod 'FBSnapshotTestCase'
-  end
+  
 end

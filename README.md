@@ -1,6 +1,6 @@
 # MDPageMaster
 
-[![CI Status](https://img.shields.io/travis/leon0206/MDPageMaster.svg?style=flat)](https://travis-ci.org/leon0206/MDPageMaster)
+[![CI Status](https://img.shields.io/travis/zitao0206/MDPageMaster.svg?style=flat)](https://travis-ci.org/zitao0206/MDPageMaster)
 [![Version](https://img.shields.io/cocoapods/v/MDPageMaster.svg?style=flat)](https://cocoapods.org/pods/MDPageMaster)
 [![License](https://img.shields.io/cocoapods/l/MDPageMaster.svg?style=flat)](https://cocoapods.org/pods/MDPageMaster)
 [![Platform](https://img.shields.io/cocoapods/p/MDPageMaster.svg?style=flat)](https://cocoapods.org/pods/MDPageMaster)
@@ -22,7 +22,7 @@ pod 'MDPageMaster'
 
 ## Author
 
-leon0206, 634376133@qq.com
+zitao0206, 634376133@qq.com
 
 ## License
 

@@ -2,7 +2,7 @@
 //  MDPageMaster.h
 //  MDPageMaster
 //
-//  Created by Leon on 2018/5/4.
+//  Created by zitao0206 on 2018/5/4.
 //
 
 #import <Foundation/Foundation.h>
@@ -13,45 +13,44 @@
 
 @interface MDPageMaster : NSObject
 /**
- app的主导航控制器，所有的VC操作应基于它。
+ The main navigation controller of app. All VC operations should be based on it.
  */
 @property (nonatomic, strong, readonly) MDPageMasterNavigationController * _Nullable navigationContorller;
 /**
- pageMaster的初始化，全局单例
+ Initialization of pageMaster, global singleton
  */
 + (nonnull instancetype)master;
 /**
- 设置默认程序的主导航控制器
- 的页面跳转都会在navigationContorller中进行；
- eg: params = @{@"schema":@"xiaoying",@"pagesFile":@"urlmapping",@"rootVC":@"HomeTabBarVC",@"rootVC_SB":@"Main"};
+ Set the main navigation controller of the default program
+ All page jumps will be performed in the navigationContoller.
+ eg: params = @{@"schema":@"weixin",@"pagesFile":@"urlmapping",@"rootVC":@"HomeTabBarVC",@"rootVC_SB":@"Main"};
  */
 - (void)setupNavigationControllerWithParams:(nonnull NSDictionary *)params;
 /**
- 重置主导航控制器
- 的页面跳转都会在navigationContorller中进行；
+ Reset the main navigation controller
+ All page jumps will be performed in the navigationContoller;
  */
 - (void)resetNavigationController;
 /**
- 设置程序的主导航控制器
- 的页面跳转都会在navigationContorller中进行，业务慎用！！！
+ Main navigation controller of setup program
+ All page jumps will be carried out in the navigationContoller. Use with caution!!!
  */
 - (void)setNavigationController:(nonnull MDPageMasterNavigationController *)navigationContorller;
 /**
- 此方法会完成url解析、参数传递、跳转；
+ This method will complete url parsing, parameter transfer and jump.
  */
 - (void)openURLAction:(nonnull MDUrlAction *)urlAction;
 /**
- 此方法会完成url解析、参数传递、跳转，带block回调；
+ This method will complete url parsing, parameter transfer, jump, and block callback.
  */
 - (void)openUrl:(nonnull NSString *)url action:(void(^)(MDUrlAction * _Nullable action))actionBlock;
 /**
- 此方法只会帮你完成url解析，返回class；
- 参数传递、跳转业务自己实现；
+ This method will only help you complete the url parsing and return class.
+ The parameter transfer and jump business are implemented by themselves.
  */
 - (void)openURLAction:(nonnull MDUrlAction *)urlAction result:(nonnull void(^)(NSString * _Nullable vc))result;
 /**
-  检查页面url是否已经在urlmapping中注册；
-   YES：在，NO：不在
+ Check whether the page url has been registered in urlmapping;
  */
 - (BOOL)checkUrlIsRegistered:(nonnull NSURL *)url;
 

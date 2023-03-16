@@ -2,7 +2,7 @@
 //  UIViewController+MDPageMaster.m
 //  MDPageMaster
 //
-//  Created by Leon on 2018/5/4.
+//  Created by zitao0206 on 2018/5/4.
 //
 
 #import "UIViewController+MDPageMaster.h"
@@ -11,7 +11,7 @@
 
 + (BOOL)isSingleton
 {
-    //考虑到VivaVideo中大部分页面都是栈中唯一的，因此设为YES；子类可重写设为NO，例如Webview
+    //Considering that most pages are unique in the stack, it is set to YES; subclasses can be overridden to NO, e.g. Webview
     return YES;
 }
 

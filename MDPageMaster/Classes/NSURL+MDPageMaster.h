@@ -2,8 +2,7 @@
 //  NSURL+MDPageMaster.h
 //  MDPageMaster
 //
-//  Created by Leon on 18/5/4.
-//  Copyright © 2018年 Leon. All rights reserved.
+//  Created by zitao0206 on 18/5/4.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,8 +10,8 @@
 @interface NSURL (MDPageMaster)
 
 /**
- 将query解析为NSDictionary
- @return 返回参数字典对象，参数的值已经进行了decode.
+ Parse query to NSDictionary
+  @return returns a dictionary object with the values of the parameters decoded.
  */
 - (NSDictionary *)parseQuery;
 

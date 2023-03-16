@@ -10,6 +10,12 @@
 #endif
 #endif
 
+#import "MDPageMaster.h"
+#import "MDPageMasterNavigationController.h"
+#import "MDPageMasterViewController.h"
+#import "MDUrlAction.h"
+#import "NSURL+MDPageMaster.h"
+#import "UIViewController+MDPageMaster.h"
 
 FOUNDATION_EXPORT double MDPageMasterVersionNumber;
 FOUNDATION_EXPORT const unsigned char MDPageMasterVersionString[];

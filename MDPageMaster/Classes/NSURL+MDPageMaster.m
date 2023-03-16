@@ -2,8 +2,7 @@
 //  NSURL+MDPageMaster.m
 //  MDPageMaster
 //
-//  Created by Leon on 18/5/4.
-//  Copyright © 2018年 Leon. All rights reserved.
+//  Created by zitao0206 on 18/5/4.
 //
 
 #import "NSURL+MDPageMaster.h"
